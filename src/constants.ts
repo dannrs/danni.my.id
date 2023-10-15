@@ -50,7 +50,7 @@ export const PROJECTS: Project[] = [
     stacks: ['Astro', 'React', 'Typescript', 'Tailwind CSS'],
     githubUrl: 'https://github.com/dannrs/portfolio',
     previewUrl: 'https://danni.my.id',
-    imageUrl: '/images/projects/portfolio-project-mockup.png'
+    imageUrl: '/images/projects/portfolio-astro-project-mockup.png'
   },
   {
     name: 'Spotify Search',
@@ -77,6 +77,6 @@ export const PROJECTS: Project[] = [
     stacks: ['Typescript', 'Next.js', 'Tailwind CSS'],
     githubUrl: 'https://github.com/dannrs/portfolio-next',
     previewUrl: 'https://next.danni.my.id',
-    imageUrl: '/images/projects/portfolio-project-mockup.png'
+    imageUrl: '/images/projects/portfolio-next-project-mockup.png'
   }
 ]
