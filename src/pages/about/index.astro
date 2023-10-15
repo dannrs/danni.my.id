@@ -4,6 +4,7 @@ import { SITE_CONFIG } from '@/constants'
 import MainLayout from '@/layouts/MainLayout.astro'
 import MdxLayout from '@/layouts/MdxLayout.astro'
 import Link from '@/components/Link'
+import { Icon } from 'astro-icon'
 
 const socialLinks = SITE_CONFIG.links
 const page = await getEntry('pages', 'about-me')
@@ -27,11 +28,14 @@ const { Content: AboutMe } = await page.render()
       <p class='pb-6 text-foreground-3'>
         Got something to discuss? Please feel free to contact me
       </p>
-      <div class='flex gap-6'>
+      <div class='flex gap-6 items-center'>
         {
-          socialLinks.map(({ href, name, Icon }) => (
+          socialLinks.map(({ href, name, icon }) => (
             <Link {href} aria-label={`Open my ${name} link`}>
-              <Icon className='h-5 w-5' />
+              <Icon
+                name={icon}
+                class='h-6 w-6'
+              />
             </Link>
           ))
         }

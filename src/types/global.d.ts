@@ -6,7 +6,7 @@ type NavItem = {
 type Link = {
   name: string
   href: string
-  Icon?: IconType
+  icon?: string
 }
 
 type SiteConfig = {

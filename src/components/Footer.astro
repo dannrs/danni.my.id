@@ -2,6 +2,7 @@
 import { SITE_CONFIG } from '@/constants'
 import { Separator } from '@/components/ui/separator'
 import Link from '@/components/Link'
+import { Icon } from 'astro-icon'
 
 const siteName = SITE_CONFIG.name
 const socialLinks = SITE_CONFIG.links
@@ -13,11 +14,14 @@ const socialLinks = SITE_CONFIG.links
     <div class='font-heading'>
       {siteName}
     </div>
-    <div class='flex gap-4'>
+    <div class='flex gap-4 items-center'>
       {
-        socialLinks.map(({ href, name, Icon }) => (
-          <Link {href} aria-label={`Open my ${name} link`}>
-            <Icon className='h-4 w-4' />
+        socialLinks.map(({ href, name, icon }) => (
+          <Link {href} aria-label={`Go to my ${name}`}>
+            <Icon
+              name={icon}
+              class='h-5 w-5'
+            />
           </Link>
         ))
       }

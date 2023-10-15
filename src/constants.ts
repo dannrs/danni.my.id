@@ -1,12 +1,3 @@
-import type { IconType } from "react-icons"
-import { SiNextdotjs, SiTailwindcss, SiTypescript, SiLinkedin, SiTwitter, SiGithub, SiProtonmail } from "react-icons/si"
-
-type Stack = {
-  name: string,
-  href: string,
-  Icon: IconType
-}
-
 export const SITE_CONFIG: SiteConfig = {
   name: 'Danni Ramdhani',
   description:
@@ -16,23 +7,23 @@ export const SITE_CONFIG: SiteConfig = {
     {
       name: 'Email',
       href: 'mailto:danniramdhani@proton.me',
-      Icon: SiProtonmail
+      icon: 'mdi:email'
     },
     {
       name: 'Github',
       href: 'https://github.com/dannrs',
-      Icon: SiGithub
+      icon: 'mdi:github'
     },
     {
       name: 'Linkedin',
       href: 'https://www.linkedin.com/in/danniramdhani',
-      Icon: SiLinkedin
+      icon: 'mdi:linkedin'
     },
     {
       name: 'Twitter/X',
       href: 'https://twitter.com/dannrs__',
-      Icon: SiTwitter
-    },
+      icon: 'mdi:twitter'
+    }
   ]
 }
 
@@ -48,7 +39,7 @@ export const NAV_LINKS: NavItem[] = [
   {
     title: 'Projects',
     href: '/projects'
-  },
+  }
 ]
 
 export const PROJECTS: Project[] = [
@@ -87,23 +78,5 @@ export const PROJECTS: Project[] = [
     githubUrl: 'https://github.com/dannrs/portfolio-next',
     previewUrl: 'https://next.danni.my.id',
     imageUrl: '/images/projects/portfolio-project-mockup.png'
-  },
-]
-
-export const STACK: Stack[] = [
-  {
-    name: 'Next.js',
-    href: 'https://nextjs.org/',
-    Icon: SiNextdotjs
-  },
-  {
-    name: 'Typescript',
-    href: 'https://www.typescriptlang.org/',
-    Icon: SiTypescript
-  },
-  {
-    name: 'Tailwind CSS',
-    href: 'https://tailwindcss.com/',
-    Icon: SiTailwindcss
-  },
+  }
 ]
