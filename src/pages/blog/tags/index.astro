@@ -1,0 +1,34 @@
+---
+import Tags from '@/components/Tags.astro'
+import { SITE_CONFIG } from '@/constants'
+import MainLayout from '@/layouts/MainLayout.astro'
+import { sortPostsByDate } from '@/lib/utils'
+import { getCollection } from 'astro:content'
+
+const posts = sortPostsByDate(
+  await getCollection('blog', ({ data }) => data.published !== true)
+)
+
+const tags = posts
+  .map(post => post.data.tags)
+  .flat()
+  .reduce<{ [key: string]: number }>(function (result, c) {
+    var count = result[c] || 0
+    result[c] = count + 1
+    return result
+  }, {})
+
+const title = `Tags - ${SITE_CONFIG.name}`
+const description = 'Filter posts by tags'
+const image = `https://og.danni.my.id/home?title=${title}`
+---
+
+<MainLayout {title} {description} {image}>
+  <main class='container max-w-3xl'>
+    <div class='my-4'>
+      <h1 class='font-heading text-2xl'>Tags</h1>
+      <p class='text-sm'></p>
+    </div>
+    <Tags {tags} />
+  </main>
+</MainLayout>

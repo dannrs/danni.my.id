@@ -1,0 +1,26 @@
+---
+import { SITE_CONFIG } from '@/constants'
+import { Separator } from '@/components/ui/separator'
+import Link from '@/components/Link'
+
+const siteName = SITE_CONFIG.name
+const socialLinks = SITE_CONFIG.links
+---
+
+<footer class='container max-w-3xl'>
+  <Separator />
+  <div class='flex items-center justify-between py-4'>
+    <div class='font-heading'>
+      {siteName}
+    </div>
+    <div class='flex gap-4'>
+      {
+        socialLinks.map(({ href, name, Icon }) => (
+          <Link {href} aria-label={`Open my ${name} link`}>
+            <Icon className='h-4 w-4' />
+          </Link>
+        ))
+      }
+    </div>
+  </div>
+</footer>

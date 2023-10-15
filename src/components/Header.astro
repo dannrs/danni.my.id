@@ -1,0 +1,21 @@
+---
+import Logo from '@/components/Logo.astro';
+import { ModeToggle } from '@/components/theme/mode-toggle'
+import { SITE_CONFIG } from '@/constants'
+import { NAV_LINKS } from '@/constants'
+---
+
+<header class='sticky top-0 z-40 bg-blur backdrop-blur-xl backdrop-filter'>
+  <nav class='container flex max-w-3xl items-center justify-between'>
+    <a href='/' class='flex h-10 items-center gap-2 py-6' aria-label='Go to homepage'>
+      <Logo />
+      <span class='hidden py-1 pb-1 font-heading text-lg sm:contents'
+        >{SITE_CONFIG.name}</span
+      >
+    </a>
+    <div class='flex items-center gap-4 text-sm'>
+      {NAV_LINKS.map(({ title, href }) => <a {href}>{title}</a>)}
+      <ModeToggle client:only />
+    </div>
+  </nav>
+</header>

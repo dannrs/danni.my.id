@@ -1,0 +1,17 @@
+---
+import Tag from '@/components/Tag.astro'
+
+type Props = {
+  tags: { [key: string]: number }
+}
+
+const { tags } = Astro.props
+const sortedTags = Object.entries(tags).sort(([, a], [, b]) => b - a)
+---
+
+<div class='flex flex-wrap gap-2'>
+  {
+    sortedTags
+      .map(([tag, number]) => <Tag {tag} {number} />)
+  }
+</div>

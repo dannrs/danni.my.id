@@ -1,0 +1,22 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro'
+import Hero from '@/components/section/Hero.astro'
+import Projects from '@/components/section/Projects.astro'
+import Blog from '@/components/section/Blog.astro'
+import { Separator } from '@/components/ui/separator'
+import { SITE_CONFIG } from '@/constants'
+
+const title = `Home - ${SITE_CONFIG.name}`
+const description = SITE_CONFIG.description
+const image = `https://og.danni.my.id/home?title=${title}`
+---
+
+<MainLayout {title} {description} {image}>
+  <main class='container max-w-3xl'>
+    <Hero />
+    <Separator />
+    <Projects />
+    <Separator />
+    <Blog />
+  </main>
+</MainLayout>

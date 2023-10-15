@@ -1,0 +1,30 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { formatDate } from '@/lib/utils'
+import Link from '@/components/Link'
+
+type Props = {
+  post: CollectionEntry<'blog'>
+}
+
+const {
+  post: {
+    data: { title, description, date },
+    slug
+  }
+} = Astro.props
+---
+
+<article class='group relative pb-4 last:pb-1'>
+  <div class='flex w-full flex-col space-y-1'>
+    <h3 class='font-heading text-lg'>
+      <Link href={`/blog/${slug}`} aria-label={`Open blog post: ${title}`}>
+        {title}
+      </Link>
+    </h3>
+    <div class='text-sm'>
+      <p class='pb-1'>{description}</p>
+      <time datetime={date.toDateString()}>{formatDate(date)}</time>
+    </div>
+  </div>
+</article>

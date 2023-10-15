@@ -1,0 +1,41 @@
+---
+import { getEntry } from 'astro:content'
+import { SITE_CONFIG } from '@/constants'
+import MainLayout from '@/layouts/MainLayout.astro'
+import MdxLayout from '@/layouts/MdxLayout.astro'
+import Link from '@/components/Link'
+
+const socialLinks = SITE_CONFIG.links
+const page = await getEntry('pages', 'about-me')
+const title = `${page.data.title} - ${SITE_CONFIG.name}`
+const description = page.data.description
+const image = `https://og.danni.my.id/home?title=${title}`
+const { Content: AboutMe } = await page.render()
+---
+
+<MainLayout {title} {description} {image}>
+  <main class='container max-w-3xl py-4'>
+    <section id='about-me'>
+      <h1 class='font-heading text-3xl'>{page.data.title}</h1>
+      <p class='pb-4 text-foreground-3'>{description}</p>
+      <MdxLayout>
+        <AboutMe />
+      </MdxLayout>
+    </section>
+    <section id='contact' class='pb-4 pt-6'>
+      <h2 class='font-heading text-2xl'>Contact</h2>
+      <p class='pb-6 text-foreground-3'>
+        Got something to discuss? Please feel free to contact me
+      </p>
+      <div class='flex gap-6'>
+        {
+          socialLinks.map(({ href, name, Icon }) => (
+            <Link {href} aria-label={`Open my ${name} link`}>
+              <Icon className='h-5 w-5' />
+            </Link>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</MainLayout>

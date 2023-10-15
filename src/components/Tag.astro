@@ -1,0 +1,24 @@
+---
+import { slug } from 'github-slugger'
+import { cn } from '@/lib/utils'
+import { buttonVariants } from '@/components/ui/button'
+
+type Props = {
+  tag: string
+  number: number
+  className?: string
+}
+
+const { tag, number, className } = Astro.props
+---
+
+<a
+  href={`/blog/tags/${slug(tag)}`}
+  class={cn(
+    className,
+    'text-sm inline-flex items-center',
+    buttonVariants({ variant: 'outline', size: 'xs' })
+  )}
+>
+  {tag} ({number})
+</a>

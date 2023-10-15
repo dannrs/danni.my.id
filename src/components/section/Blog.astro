@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content'
+import PostCard from '@/components/PostCard.astro'
+import { sortPostsByDate } from '@/lib/utils'
+import { ArrowUpRight } from 'lucide-react'
+
+const posts = sortPostsByDate(
+  await getCollection('blog', ({ data }) => data.published !== true)
+).slice(0, 3)
+---
+
+<section class='py-8'>
+  <h1 class='font-heading text-2xl'>
+    <a href='/blog' aria-label='See all blog post' class='group'>
+      Blog
+      <ArrowUpRight
+        className='inline h-5 w-5 opacity-0 duration-200 group-hover:opacity-100'
+      />
+    </a>
+  </h1>
+  <p class='pb-4 text-sm text-foreground-3'>
+  My latest blog posts
+  </p>
+  {posts.map(post => <PostCard {post} />)}
+</section>

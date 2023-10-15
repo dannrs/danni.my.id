@@ -1,0 +1,101 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { getCollection } from 'astro:content'
+import MainLayout from '@/layouts/MainLayout.astro'
+import MdxLayout from '@/layouts/MdxLayout.astro'
+import { Button } from '@/components/ui/button'
+import { cn, formatDate } from '@/lib/utils'
+import { ChevronLeft } from 'lucide-react'
+import Link from '@/components/Link'
+import { SITE_CONFIG } from '@/constants'
+import { Badge } from '@/components/ui/badge'
+import { slug } from 'github-slugger'
+
+export const prerender = true
+export async function getStaticPaths() {
+  const posts = await getCollection(
+    'blog',
+    ({ data }) => data.published !== true
+  )
+
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post }
+  }))
+}
+
+type Props = {
+  post: CollectionEntry<'blog'>
+}
+
+const {
+  post,
+  post: {
+    data: { title, description, date, tags }
+  }
+} = Astro.props
+const { Content, remarkPluginFrontmatter, headings } = await post.render()
+const readingTime = Math.round(remarkPluginFrontmatter?.minutesRead)
+const readingTimeText = `${readingTime} ${
+  readingTime === 1 ? 'min' : 'mins'
+} read`
+const siteTitle = `${title} - ${SITE_CONFIG.name}`
+const image = `https://og.danni.my.id/blog?title=${title}`
+---
+
+<MainLayout title={siteTitle} {description} {image}>
+  <main class='container mt-4 max-w-3xl'>
+    <h1 class='pb-2 font-heading text-3xl'>{title}</h1>
+    <div class='text-sm'>
+      <time datetime={date.toDateString()}>{formatDate(date)}</time
+      >&nbsp;&bull;&nbsp;<span>{readingTimeText}</span>
+    </div>
+    <div class='flex flex-wrap gap-1 pt-2'>
+      {
+        tags.map(tag => (
+          <a
+            href={`/blog/tags/${slug(tag)}`}
+            aria-label={`See all post about ${tag}`}
+          >
+            <Badge variant='outline'>{tag}</Badge>
+          </a>
+        ))
+      }
+    </div>
+    <details class='my-8 rounded-md border p-4'>
+      <summary class='cursor-pointer'>Table of Contents</summary>
+      <ul class='space-y-2 pt-4'>
+        {
+          headings.map(heading => (
+            <li>
+              <Link
+                href={`#${heading.slug}`}
+                aria-label={`Go to ${heading.text} section`}
+                className={cn(
+                  `no-underline decoration-2 underline-offset-[3px] hover:underline`,
+                  heading.depth === 3 ? 'pl-8' : 'pl-0'
+                )}
+              >
+                {heading.text}
+              </Link>
+            </li>
+          ))
+        }
+      </ul>
+    </details>
+    <MdxLayout>
+      <Content />
+    </MdxLayout>
+    <div class='my-8 flex justify-center'>
+      <a
+        href='/blog'
+        class='inline-flex items-center'
+        aria-label='See all posts'
+      >
+        <Button variant='ghost'>
+          <ChevronLeft className='-ml-2 mr-1 h-4 w-4' />See all posts
+        </Button>
+      </a>
+    </div>
+  </main>
+</MainLayout>
