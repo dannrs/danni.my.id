@@ -6,6 +6,7 @@ import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypePrettyCode from 'rehype-pretty-code'
 import { remarkReadingTime } from './src/lib/remark-reading-time.mjs'
+import icon from "astro-icon";
 
 import vercel from '@astrojs/vercel/serverless'
 
@@ -19,7 +20,8 @@ export default defineConfig({
     tailwind({
       applyBaseStyles: false
     }),
-    mdx()
+    mdx(),
+    icon()
   ],
   markdown: {
     syntaxHighlight: false,

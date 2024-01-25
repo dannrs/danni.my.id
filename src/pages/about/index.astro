@@ -4,7 +4,7 @@ import { SITE_CONFIG } from '@/constants'
 import MainLayout from '@/layouts/MainLayout.astro'
 import MdxLayout from '@/layouts/MdxLayout.astro'
 import Link from '@/components/Link'
-import { Icon } from 'astro-icon'
+import { Icon } from 'astro-icon/components'
 
 const socialLinks = SITE_CONFIG.links
 const page = await getEntry('pages', 'about-me')
