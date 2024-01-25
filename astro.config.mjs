@@ -12,11 +12,6 @@ import vercel from '@astrojs/vercel/serverless'
 
 // https://astro.build/config
 export default defineConfig({
-  vite: {
-    ssr: {
-      noExternal: ['execa']
-    }
-  },
   site: 'https://danni.my.id',
   output: 'server',
   adapter: vercel(),
