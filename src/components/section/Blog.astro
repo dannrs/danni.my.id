@@ -1,12 +1,9 @@
 ---
 import { getCollection } from 'astro:content'
 import PostCard from '@/components/PostCard.astro'
-import { sortPostsByDate } from '@/lib/utils'
 import { ArrowUpRight } from 'lucide-react'
 
-const posts = sortPostsByDate(
-  await getCollection('blog', ({ data }) => data.published !== true)
-).slice(0, 3)
+const posts = await getCollection('posts')
 ---
 
 <section class='py-8'>
@@ -18,8 +15,6 @@ const posts = sortPostsByDate(
       />
     </a>
   </h1>
-  <p class='pb-4 text-sm text-foreground-3'>
-  My latest blog posts
-  </p>
+  <p class='pb-4 text-sm text-foreground-3'>My latest blog posts</p>
   {posts.map(post => <PostCard {post} />)}
 </section>

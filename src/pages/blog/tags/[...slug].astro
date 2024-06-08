@@ -1,7 +1,6 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro'
 import { getCollection } from 'astro:content'
-import { sortPostsByDate } from '@/lib/utils'
 import PostCard from '@/components/PostCard.astro'
 import { ChevronLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -9,14 +8,15 @@ import { slug as slugger } from 'github-slugger'
 import { SITE_CONFIG } from '@/constants'
 
 export const prerender = true
-const posts = sortPostsByDate(
-  await getCollection('blog', ({ data }) => data.published !== true)
+const posts = await getCollection(
+  'posts',
+  ({ data }) => data.published === true
 )
 
 export async function getStaticPaths() {
   const posts = await getCollection(
-    'blog',
-    ({ data }) => data.published !== true
+    'posts',
+    ({ data }) => data.published === true
   )
   return [...new Set(posts.map(post => post.data.tags).flat())].map(tag => ({
     params: { slug: slugger(tag) }
@@ -52,7 +52,11 @@ const image = `https://og.danni.my.id/home?title=${title}`
       {postsWithTag.map(post => <PostCard {post} />)}
     </div>
     <div class='my-6 flex justify-center'>
-      <a href='/blog/tags' class='inline-flex items-center' aria-label='See all tags'>
+      <a
+        href='/blog/tags'
+        class='inline-flex items-center'
+        aria-label='See all tags'
+      >
         <Button variant='ghost'>
           <ChevronLeft className='-ml-2 mr-1 h-4 w-4' />See all tags
         </Button>

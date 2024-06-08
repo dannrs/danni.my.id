@@ -6,16 +6,15 @@ tags:
   - Guides
   - Next.js
   - Api Integration
+published: true
 ---
 
 import Callout from '@/components/mdx/Callout'
-import Code from '@/components/mdx/Code.astro'
 import Image from '@/components/mdx/Image.astro'
 import Link from '@/components/Link'
 
 export const components = {
   a: Link,
-  code: Code
 }
 
 ## Introduction
@@ -46,10 +45,10 @@ That's it! Now that your Spotify application is properly configured, we're ready
 
 ### Authentication
 
-**Authorization Code Flow**  
+**Authorization Code Flow**
 Depending on your application, various authentication methods are available. For this tutorial, we'll use the [Authorization Code Flow](https://developer.spotify.com/documentation/web-api/tutorials/code-flow), which involves obtaining a refresh token that only expires when access is revoked.
 
-**Step 1: Request Authorization**  
+**Step 1: Request Authorization**
 Before you can access Spotify resources, you must request authorization for your application. Copy and paste this link into your browser to begin the process:
 
 ```
@@ -85,7 +84,6 @@ The above command will return a response in JSON format and should look like thi
   "refresh_token": "AQBfU...JYKoA",
   "scope": "user-read-currently-playing user-read-recently-played user-top-read"
 }
-
 ```
 
 **Step 4: Store Information**  
