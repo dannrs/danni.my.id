@@ -4,7 +4,7 @@ import { Moon, Sun } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 function setTheme(theme: string) {
-  const currentTheme = localStorage.getItem('theme') ?? 'dark' 
+  const currentTheme = localStorage.getItem('theme') ?? 'dark'
   document.documentElement.classList.remove(currentTheme)
 
   document.documentElement.classList.add(theme)
