@@ -2,11 +2,11 @@
 import { getCollection } from 'astro:content'
 import PostCard from '@/components/PostCard.astro'
 import MainLayout from '@/layouts/MainLayout.astro'
-import { sortPostsByDate } from '@/lib/utils'
 import { SITE_CONFIG } from '@/constants'
 
-const posts = sortPostsByDate(
-  await getCollection('blog', ({ data }) => data.published !== true)
+const posts = await getCollection(
+  'posts',
+  ({ data }) => data.published === true
 )
 
 const title = `Blog - ${SITE_CONFIG.name}`

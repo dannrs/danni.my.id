@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content'
 import MainLayout from '@/layouts/MainLayout.astro'
 import MdxLayout from '@/layouts/MdxLayout.astro'
 import { Button } from '@/components/ui/button'
-import { cn, formatDate } from '@/lib/utils'
+import { formatDate } from '@/lib/utils'
 import { ChevronLeft } from 'lucide-react'
 import Link from '@/components/Link'
 import { SITE_CONFIG } from '@/constants'
@@ -13,10 +13,7 @@ import { slug } from 'github-slugger'
 
 export const prerender = true
 export async function getStaticPaths() {
-  const posts = await getCollection(
-    'blog',
-    ({ data }) => data.published !== true
-  )
+  const posts = await getCollection('posts')
 
   return posts.map(post => ({
     params: { slug: post.slug },
@@ -25,7 +22,7 @@ export async function getStaticPaths() {
 }
 
 type Props = {
-  post: CollectionEntry<'blog'>
+  post: CollectionEntry<'posts'>
 }
 
 const {
@@ -44,7 +41,7 @@ const image = `https://og.danni.my.id/blog?title=${title}`
 ---
 
 <MainLayout title={siteTitle} {description} {image}>
-  <main class='container mt-4 max-w-3xl'>
+  <main class='container mt-8 max-w-3xl'>
     <h1 class='pb-2 font-heading text-3xl'>{title}</h1>
     <div class='text-sm'>
       <time datetime={date.toDateString()}>{formatDate(date)}</time
@@ -68,16 +65,13 @@ const image = `https://og.danni.my.id/blog?title=${title}`
         {
           headings.map(heading => (
             <li>
-              <Link
+              <a
                 href={`#${heading.slug}`}
                 aria-label={`Go to ${heading.text} section`}
-                className={cn(
-                  `no-underline decoration-2 underline-offset-[3px] hover:underline`,
-                  heading.depth === 3 ? 'pl-8' : 'pl-0'
-                )}
+                class={heading.depth === 3 ? 'ml-8' : 'ml-0'}
               >
                 {heading.text}
-              </Link>
+              </a>
             </li>
           ))
         }

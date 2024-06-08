@@ -62,7 +62,7 @@ module.exports = {
             video: {
               marginTop: '0.5rem',
               marginBottom: '0.5rem'
-            },
+            }
           }
         }
       },
@@ -83,7 +83,7 @@ module.exports = {
         foreground: {
           DEFAULT: 'hsl(var(--foreground))',
           2: 'hsl(var(--foreground-2))',
-          3: 'hsl(var(--foreground-3))',
+          3: 'hsl(var(--foreground-3))'
         },
         primary: {
           DEFAULT: 'hsl(var(--primary))',
@@ -123,7 +123,8 @@ module.exports = {
       },
       fontFamily: {
         sans: ['InterVariable', ...fontFamily.sans],
-        heading: ['Barlow', ...fontFamily.sans]
+        heading: ['Barlow', ...fontFamily.sans],
+        mono: ['JetBrainsMonoVariable', ...fontFamily.mono]
       },
       keyframes: {
         'accordion-down': {

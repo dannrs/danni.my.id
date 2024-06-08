@@ -2,11 +2,11 @@
 import Tags from '@/components/Tags.astro'
 import { SITE_CONFIG } from '@/constants'
 import MainLayout from '@/layouts/MainLayout.astro'
-import { sortPostsByDate } from '@/lib/utils'
 import { getCollection } from 'astro:content'
 
-const posts = sortPostsByDate(
-  await getCollection('blog', ({ data }) => data.published !== true)
+const posts = await getCollection(
+  'posts',
+  ({ data }) => data.published === true
 )
 
 const tags = posts

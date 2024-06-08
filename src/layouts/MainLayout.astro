@@ -7,6 +7,7 @@ import ThemeProvider from '@/components/theme/ThemeProvider.astro'
 import '@fontsource-variable/inter'
 import '@fontsource/barlow/700.css'
 import '@fontsource/barlow/800.css'
+import '@fontsource-variable/jetbrains-mono'
 import { SITE_CONFIG } from '@/constants'
 
 type Props = {
@@ -32,18 +33,18 @@ const { title, description, image } = Astro.props
     <title>{title}</title>
     <meta name='description' content={description} />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content={SITE_CONFIG.name} />
-    <meta property="og:url" content={Astro.url} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
-    
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={Astro.url} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={image} />
+    <meta property='og:type' content='website' />
+    <meta property='og:site_name' content={SITE_CONFIG.name} />
+    <meta property='og:url' content={Astro.url} />
+    <meta property='og:title' content={title} />
+    <meta property='og:description' content={description} />
+    <meta property='og:image' content={image} />
+
+    <meta property='twitter:card' content='summary_large_image' />
+    <meta property='twitter:url' content={Astro.url} />
+    <meta property='twitter:title' content={title} />
+    <meta property='twitter:description' content={description} />
+    <meta property='twitter:image' content={image} />
   </head>
   <body class='min-h-screen font-sans antialiased'>
     <div class='flex min-h-screen flex-col'>
@@ -55,62 +56,3 @@ const { title, description, image } = Astro.props
     </div>
   </body>
 </html>
-
-<style is:global>
-  /* Rehype Pretty Code */
-  [data-rehype-pretty-code-fragment] code {
-    @apply grid min-w-full break-words rounded-none border-0 bg-muted p-0 leading-7;
-  }
-
-  [data-rehype-pretty-code] {
-    @apply bg-muted;
-  }
-
-  [data-rehype-pretty-code-fragment] pre {
-    @apply bg-muted;
-  }
-
-  pre[data-theme='dark'] {
-    @apply hidden;
-  }
-
-  html.dark pre[data-theme='dark'] {
-    @apply m-0 inline-block w-full;
-  }
-
-  pre[data-theme='light'] {
-    @apply m-0 inline-block w-full;
-  }
-
-  html.dark pre[data-theme='light'] {
-    @apply hidden;
-  }
-
-  [data-rehype-pretty-code-title][data-theme='dark'] {
-    @apply hidden;
-  }
-
-  html.dark [data-rehype-pretty-code-title][data-theme='dark'] {
-    @apply block bg-accent;
-  }
-
-  [data-rehype-pretty-code-title][data-theme='light'] {
-    @apply block bg-muted;
-  }
-
-  html.dark [data-rehype-pretty-code-title][data-theme='light'] {
-    @apply hidden;
-  }
-
-  [data-highlighted-line] {
-    @apply m-0 inline-block w-full bg-gray-300 px-0  dark:bg-gray-300/10;
-  }
-
-  [data-highlighted-line]::before {
-    @apply border-l-2 border-l-blue-500;
-  }
-  [data-highlighted-chars] {
-    @apply rounded bg-zinc-600/50;
-    box-shadow: 0 0 0 4px rgb(82 82 91 / 0.5);
-  }
-</style>

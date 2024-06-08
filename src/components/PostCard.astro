@@ -4,7 +4,7 @@ import { formatDate } from '@/lib/utils'
 import Link from '@/components/Link'
 
 type Props = {
-  post: CollectionEntry<'blog'>
+  post: CollectionEntry<'posts'>
 }
 
 const {
@@ -18,9 +18,9 @@ const {
 <article class='group relative pb-4 last:pb-1'>
   <div class='flex w-full flex-col space-y-1'>
     <h3 class='font-heading text-lg'>
-      <Link href={`/blog/${slug}`} aria-label={`Open blog post: ${title}`}>
+      <a href={`/blog/${slug}`} aria-label={`Open blog post: ${title}`}>
         {title}
-      </Link>
+      </a>
     </h3>
     <div class='text-sm'>
       <p class='pb-1'>{description}</p>

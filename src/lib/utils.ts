@@ -1,4 +1,3 @@
-import type { CollectionEntry } from 'astro:content'
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
@@ -13,10 +12,4 @@ export function formatDate(input: Date): string {
     day: 'numeric',
     year: 'numeric'
   })
-}
-
-export function sortPostsByDate(
-  posts: CollectionEntry<'blog'>[]
-): CollectionEntry<'blog'>[] {
-  return posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 }
