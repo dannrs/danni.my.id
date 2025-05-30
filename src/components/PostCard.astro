@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 import { formatDate } from '@/lib/utils'
-import Link from '@/components/Link'
 
 type Props = {
   post: CollectionEntry<'posts'>
@@ -9,8 +8,8 @@ type Props = {
 
 const {
   post: {
+    id: slug,
     data: { title, description, date },
-    slug
   }
 } = Astro.props
 ---

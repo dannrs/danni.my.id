@@ -14,8 +14,8 @@ const image = `https://og.danni.my.id/home?title=${title}`
     <p class='pb-4 text-sm text-foreground-3'>
       {description}
     </p>
-    <div class='flex flex-col gap-4'>
-      {PROJECTS.map(project => <ProjectCard {...{ project }} />)}
+    <div class='flex flex-col'>
+      {PROJECTS.map((project, index) => <ProjectCard {...{ project, index }} />)}
     </div>
   </main>
 </MainLayout>
