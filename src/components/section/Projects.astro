@@ -4,7 +4,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { PROJECTS } from '@/constants'
 ---
 
-<section class='py-8'>
+<section class='py-10'>
   <h2 class='font-heading text-2xl'>
     <a href='/projects' aria-label='See all projects' class='group'>
       Projects
@@ -16,7 +16,11 @@ import { PROJECTS } from '@/constants'
   <p class='pb-4 text-sm text-foreground-3'>
     A list of projects I have created
   </p>
-  <div class='flex flex-col gap-4'>
-    {PROJECTS.slice(0, 3).map(project => <ProjectCard {...{ project }} />)}
+  <div class='flex flex-col'>
+    {
+      PROJECTS.slice(0, 3).map((project, index) => (
+        <ProjectCard {...{ project, index }} />
+      ))
+    }
   </div>
 </section>

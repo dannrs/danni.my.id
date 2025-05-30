@@ -44,6 +44,40 @@ export const NAV_LINKS: NavItem[] = [
 
 export const PROJECTS: Project[] = [
   {
+    name: 'Oprec FOJB',
+    description:
+      'A full-stack web application for the FOJB open recruitment program.',
+    stacks: [
+      'Next.js',
+      'React',
+      'Typescript',
+      'Tailwind CSS',
+      'Drizzle ORM',
+      'PostgreSQL',
+      'Docker'
+    ],
+    githubUrl: 'https://github.com/dannrs/oprec',
+    previewUrl: 'https://oprec.forumosisjabar.id',
+    imageUrl: '/images/projects/portfolio-astro-project-mockup.png'
+  },
+  {
+    name: 'Vulse',
+    description:
+      'A full stack web application for sharing favorite Spotify music.',
+    stacks: [
+      'Next.js',
+      'React',
+      'Typescript',
+      'Tailwind CSS',
+      'Drizzle ORM',
+      'PostgreSQL',
+      'tRPC'
+    ],
+    githubUrl: 'https://github.com/dannrs/vulse',
+    previewUrl: 'https://vulse.vercel.app/dannrs',
+    imageUrl: '/images/projects/portfolio-astro-project-mockup.png'
+  },
+  {
     name: 'Portfolio',
     description:
       'My personal portfolio site built with Astro, React, TypeScript and Tailwind CSS.',
