@@ -1,12 +1,10 @@
 ---
-import type { CollectionEntry } from 'astro:content'
-import { getCollection } from 'astro:content'
+import { getCollection, render } from 'astro:content'
 import MainLayout from '@/layouts/MainLayout.astro'
 import MdxLayout from '@/layouts/MdxLayout.astro'
 import { Button } from '@/components/ui/button'
 import { formatDate } from '@/lib/utils'
 import { ChevronLeft } from 'lucide-react'
-import Link from '@/components/Link'
 import { SITE_CONFIG } from '@/constants'
 import { Badge } from '@/components/ui/badge'
 import { slug } from 'github-slugger'
@@ -16,13 +14,9 @@ export async function getStaticPaths() {
   const posts = await getCollection('posts')
 
   return posts.map(post => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: { post }
   }))
-}
-
-type Props = {
-  post: CollectionEntry<'posts'>
 }
 
 const {
@@ -31,12 +25,13 @@ const {
     data: { title, description, date, tags }
   }
 } = Astro.props
-const { Content, remarkPluginFrontmatter, headings } = await post.render()
+const { Content, remarkPluginFrontmatter, headings } = await render(post)
 const readingTime = Math.round(remarkPluginFrontmatter?.minutesRead)
 const readingTimeText = `${readingTime} ${
   readingTime === 1 ? 'min' : 'mins'
 } read`
 const siteTitle = `${title} - ${SITE_CONFIG.name}`
+console.log('post id:', post.id)
 const image = `https://og.danni.my.id/blog?title=${title}`
 ---
 
