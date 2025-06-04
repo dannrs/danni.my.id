@@ -56,7 +56,7 @@ export const PROJECTS: Project[] = [
       'PostgreSQL',
       'Docker'
     ],
-    githubUrl: 'https://github.com/dannrs/oprec',
+    githubUrl: '',
     previewUrl: 'https://oprec.forumosisjabar.id',
     imageUrl: '/images/projects/portfolio-astro-project-mockup.png'
   },
