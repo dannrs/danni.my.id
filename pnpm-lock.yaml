@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@astrojs/markdown-remark':
+        specifier: ^7.2.0
+        version: 7.2.0
       '@astrojs/mdx':
         specifier: ^6.0.3
         version: 6.0.3(astro@6.4.5(@vercel/functions@3.6.3)(jiti@1.21.0)(rollup@4.61.1))
@@ -1606,8 +1609,8 @@ packages:
     resolution: {integrity: sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==}
     engines: {node: '>= 6'}
 
-  caniuse-lite@1.0.30001720:
-    resolution: {integrity: sha512-Ec/2yV2nNPwb4DnTANEV99ZWwm3ZWfdlfkQbWSDDt+PsXEVYwlhPH8tdMaPunYTKKmz7AnHi2oNEi1GcmKCD8g==}
+  caniuse-lite@1.0.30001797:
+    resolution: {integrity: sha512-l8xKG+gwAIExZGl9FrF7KUwuOmk6wbEPC9Xoy/RtnWv1XG0Q4LFlagaLpUv3Kiza3W/wm27zy0yWJEieYKAP6w==}
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -3348,9 +3351,6 @@ packages:
   retext-latin@4.0.0:
     resolution: {integrity: sha512-hv9woG7Fy0M9IlRQloq/N6atV82NxLGveq+3H2WOi79dtIYWN8OaxogDm77f8YnVXJL2VD3bbqowu5E3EMhBYA==}
 
-  retext-smartypants@6.1.0:
-    resolution: {integrity: sha512-LDPXg95346bqFZnDMHo0S7Rq5p64+B+N8Vz733+wPMDtwb9rCOs9LIdIEhrUOU+TAywX9St+ocQWJt8wrzivcQ==}
-
   retext-smartypants@6.2.0:
     resolution: {integrity: sha512-kk0jOU7+zGv//kfjXEBjdIryL1Acl4i9XNkHxtM7Tm5lFiCog576fjNC9hjoR7LTKQ0DsPWy09JummSsH1uqfQ==}
 
@@ -3720,14 +3720,8 @@ packages:
   unist-util-visit-children@3.0.0:
     resolution: {integrity: sha512-RgmdTfSBOg04sdPcpTSD1jzoNBjt9a80/ZCzp5cI9n1qPzLZWF9YdvWGN2zmTumP1HWhXKdUWexjy/Wy/lJ7tA==}
 
-  unist-util-visit-parents@6.0.1:
-    resolution: {integrity: sha512-L/PqWzfTP9lzzEa6CKs0k2nARxTdZduw3zyh8d2NVBnsyvHjSX4TWse388YrrQKbvI8w20fGjGlhgT96WwKykw==}
-
   unist-util-visit-parents@6.0.2:
     resolution: {integrity: sha512-goh1s1TBrqSqukSc8wrjwWhL0hiJxgA8m4kFxGlQ+8FYQ3C/m11FcTs4YYem7V664AhHVvgoQLk890Ssdsr2IQ==}
-
-  unist-util-visit@5.0.0:
-    resolution: {integrity: sha512-MR04uvD+07cwl/yhVuVWAtw+3GOR/knlL55Nd/wAdblk27GCVt3lqpTivy/tkJcZoNPzTwS1Y+KMojlLDhoTzg==}
 
   unist-util-visit@5.1.0:
     resolution: {integrity: sha512-m+vIdyeCOpdr/QeQCu2EzxX/ohgS8KbnPDgFni4dQsfSCtpz8UqDyY5GjRru8PDKuYn7Fq19j1CQ+nJSsGKOzg==}
@@ -4616,7 +4610,7 @@ snapshots:
       unified: 11.0.5
       unist-util-position-from-estree: 2.0.0
       unist-util-stringify-position: 4.0.0
-      unist-util-visit: 5.0.0
+      unist-util-visit: 5.1.0
       vfile: 6.0.3
     transitivePeerDependencies:
       - supports-color
@@ -4847,7 +4841,7 @@ snapshots:
     dependencies:
       '@types/estree': 1.0.7
       estree-walker: 2.0.2
-      picomatch: 4.0.2
+      picomatch: 4.0.4
     optionalDependencies:
       rollup: 4.61.1
 
@@ -5483,7 +5477,7 @@ snapshots:
   autoprefixer@10.4.21(postcss@8.5.4):
     dependencies:
       browserslist: 4.25.0
-      caniuse-lite: 1.0.30001720
+      caniuse-lite: 1.0.30001797
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.1
@@ -5533,7 +5527,7 @@ snapshots:
 
   browserslist@4.25.0:
     dependencies:
-      caniuse-lite: 1.0.30001720
+      caniuse-lite: 1.0.30001797
       electron-to-chromium: 1.5.161
       node-releases: 2.0.19
       update-browserslist-db: 1.1.3(browserslist@4.25.0)
@@ -5550,7 +5544,7 @@ snapshots:
 
   camelcase-css@2.0.1: {}
 
-  caniuse-lite@1.0.30001720: {}
+  caniuse-lite@1.0.30001797: {}
 
   ccount@2.0.1: {}
 
@@ -6360,7 +6354,7 @@ snapshots:
       mdast-util-to-hast: 13.1.0
       parse5: 7.1.2
       unist-util-position: 5.0.0
-      unist-util-visit: 5.0.0
+      unist-util-visit: 5.1.0
       vfile: 6.0.3
       web-namespaces: 2.0.1
       zwitch: 2.0.4
@@ -6752,20 +6746,20 @@ snapshots:
 
   mdast-util-definitions@6.0.0:
     dependencies:
-      '@types/mdast': 4.0.3
+      '@types/mdast': 4.0.4
       '@types/unist': 3.0.2
-      unist-util-visit: 5.0.0
+      unist-util-visit: 5.1.0
 
   mdast-util-find-and-replace@3.0.1:
     dependencies:
-      '@types/mdast': 4.0.3
+      '@types/mdast': 4.0.4
       escape-string-regexp: 5.0.0
       unist-util-is: 6.0.0
-      unist-util-visit-parents: 6.0.1
+      unist-util-visit-parents: 6.0.2
 
   mdast-util-from-markdown@2.0.0:
     dependencies:
-      '@types/mdast': 4.0.3
+      '@types/mdast': 4.0.4
       '@types/unist': 3.0.2
       decode-named-character-reference: 1.0.2
       devlop: 1.1.0
@@ -6782,7 +6776,7 @@ snapshots:
 
   mdast-util-gfm-autolink-literal@2.0.0:
     dependencies:
-      '@types/mdast': 4.0.3
+      '@types/mdast': 4.0.4
       ccount: 2.0.1
       devlop: 1.1.0
       mdast-util-find-and-replace: 3.0.1
@@ -6790,7 +6784,7 @@ snapshots:
 
   mdast-util-gfm-footnote@2.0.0:
     dependencies:
-      '@types/mdast': 4.0.3
+      '@types/mdast': 4.0.4
       devlop: 1.1.0
       mdast-util-from-markdown: 2.0.0
       mdast-util-to-markdown: 2.1.0
@@ -6800,7 +6794,7 @@ snapshots:
 
   mdast-util-gfm-strikethrough@2.0.0:
     dependencies:
-      '@types/mdast': 4.0.3
+      '@types/mdast': 4.0.4
       mdast-util-from-markdown: 2.0.0
       mdast-util-to-markdown: 2.1.0
     transitivePeerDependencies:
@@ -6808,7 +6802,7 @@ snapshots:
 
   mdast-util-gfm-table@2.0.0:
     dependencies:
-      '@types/mdast': 4.0.3
+      '@types/mdast': 4.0.4
       devlop: 1.1.0
       markdown-table: 3.0.3
       mdast-util-from-markdown: 2.0.0
@@ -6818,7 +6812,7 @@ snapshots:
 
   mdast-util-gfm-task-list-item@2.0.0:
     dependencies:
-      '@types/mdast': 4.0.3
+      '@types/mdast': 4.0.4
       devlop: 1.1.0
       mdast-util-from-markdown: 2.0.0
       mdast-util-to-markdown: 2.1.0
@@ -6841,7 +6835,7 @@ snapshots:
     dependencies:
       '@types/estree-jsx': 1.0.3
       '@types/hast': 3.0.4
-      '@types/mdast': 4.0.3
+      '@types/mdast': 4.0.4
       devlop: 1.1.0
       mdast-util-from-markdown: 2.0.0
       mdast-util-to-markdown: 2.1.0
@@ -6852,7 +6846,7 @@ snapshots:
     dependencies:
       '@types/estree-jsx': 1.0.3
       '@types/hast': 3.0.4
-      '@types/mdast': 4.0.3
+      '@types/mdast': 4.0.4
       '@types/unist': 3.0.2
       ccount: 2.0.1
       devlop: 1.1.0
@@ -6880,7 +6874,7 @@ snapshots:
     dependencies:
       '@types/estree-jsx': 1.0.3
       '@types/hast': 3.0.4
-      '@types/mdast': 4.0.3
+      '@types/mdast': 4.0.4
       devlop: 1.1.0
       mdast-util-from-markdown: 2.0.0
       mdast-util-to-markdown: 2.1.0
@@ -6889,30 +6883,30 @@ snapshots:
 
   mdast-util-phrasing@4.0.0:
     dependencies:
-      '@types/mdast': 4.0.3
+      '@types/mdast': 4.0.4
       unist-util-is: 6.0.0
 
   mdast-util-to-hast@13.1.0:
     dependencies:
       '@types/hast': 3.0.4
-      '@types/mdast': 4.0.3
+      '@types/mdast': 4.0.4
       '@ungap/structured-clone': 1.2.0
       devlop: 1.1.0
       micromark-util-sanitize-uri: 2.0.0
       trim-lines: 3.0.1
       unist-util-position: 5.0.0
-      unist-util-visit: 5.0.0
+      unist-util-visit: 5.1.0
       vfile: 6.0.3
 
   mdast-util-to-markdown@2.1.0:
     dependencies:
-      '@types/mdast': 4.0.3
+      '@types/mdast': 4.0.4
       '@types/unist': 3.0.2
       longest-streak: 3.1.0
       mdast-util-phrasing: 4.0.0
       mdast-util-to-string: 4.0.0
       micromark-util-decode-string: 2.0.0
-      unist-util-visit: 5.0.0
+      unist-util-visit: 5.1.0
       zwitch: 2.0.4
 
   mdast-util-to-string@4.0.0:
@@ -7690,7 +7684,7 @@ snapshots:
 
   remark-gfm@4.0.1:
     dependencies:
-      '@types/mdast': 4.0.3
+      '@types/mdast': 4.0.4
       mdast-util-gfm: 3.0.0
       micromark-extension-gfm: 3.0.0
       remark-parse: 11.0.0
@@ -7708,7 +7702,7 @@ snapshots:
 
   remark-parse@11.0.0:
     dependencies:
-      '@types/mdast': 4.0.3
+      '@types/mdast': 4.0.4
       mdast-util-from-markdown: 2.0.0
       micromark-util-types: 2.0.0
       unified: 11.0.5
@@ -7718,7 +7712,7 @@ snapshots:
   remark-rehype@11.1.2:
     dependencies:
       '@types/hast': 3.0.4
-      '@types/mdast': 4.0.3
+      '@types/mdast': 4.0.4
       mdast-util-to-hast: 13.1.0
       unified: 11.0.5
       vfile: 6.0.3
@@ -7726,13 +7720,13 @@ snapshots:
   remark-smartypants@3.0.2:
     dependencies:
       retext: 9.0.0
-      retext-smartypants: 6.1.0
+      retext-smartypants: 6.2.0
       unified: 11.0.5
-      unist-util-visit: 5.0.0
+      unist-util-visit: 5.1.0
 
   remark-stringify@11.0.0:
     dependencies:
-      '@types/mdast': 4.0.3
+      '@types/mdast': 4.0.4
       mdast-util-to-markdown: 2.1.0
       unified: 11.0.5
 
@@ -7754,17 +7748,11 @@ snapshots:
       parse-latin: 7.0.0
       unified: 11.0.5
 
-  retext-smartypants@6.1.0:
-    dependencies:
-      '@types/nlcst': 2.0.3
-      nlcst-to-string: 4.0.0
-      unist-util-visit: 5.0.0
-
   retext-smartypants@6.2.0:
     dependencies:
       '@types/nlcst': 2.0.3
       nlcst-to-string: 4.0.0
-      unist-util-visit: 5.0.0
+      unist-util-visit: 5.1.0
 
   retext-stringify@4.0.0:
     dependencies:
@@ -8239,7 +8227,7 @@ snapshots:
   unist-util-remove-position@5.0.0:
     dependencies:
       '@types/unist': 3.0.2
-      unist-util-visit: 5.0.0
+      unist-util-visit: 5.1.0
 
   unist-util-stringify-position@4.0.0:
     dependencies:
@@ -8249,27 +8237,16 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.2
 
-  unist-util-visit-parents@6.0.1:
-    dependencies:
-      '@types/unist': 3.0.2
-      unist-util-is: 6.0.0
-
   unist-util-visit-parents@6.0.2:
     dependencies:
       '@types/unist': 3.0.2
       unist-util-is: 6.0.0
 
-  unist-util-visit@5.0.0:
-    dependencies:
-      '@types/unist': 3.0.2
-      unist-util-is: 6.0.0
-      unist-util-visit-parents: 6.0.1
-
   unist-util-visit@5.1.0:
     dependencies:
       '@types/unist': 3.0.2
       unist-util-is: 6.0.0
-      unist-util-visit-parents: 6.0.1
+      unist-util-visit-parents: 6.0.2
 
   unstorage@1.17.5(@vercel/functions@3.6.3):
     dependencies:

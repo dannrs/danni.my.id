@@ -4,7 +4,8 @@ import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
 import { remarkReadingTime } from './src/lib/remark-reading-time.mjs'
 import icon from 'astro-icon'
-import vercel from '@astrojs/vercel/serverless'
+import { unified } from '@astrojs/markdown-remark'
+import vercel from '@astrojs/vercel'
 
 // https://astro.build/config
 export default defineConfig({
@@ -27,7 +28,8 @@ export default defineConfig({
         dark: 'tokyo-night'
       }
     },
-    remarkPlugins: [remarkReadingTime]
+    processor: unified({
+      remarkPlugins: [remarkReadingTime]
+    })
   }
 })
-
