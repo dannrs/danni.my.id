@@ -1,7 +1,0 @@
-node_modules
-build
-dist
-.prettierrc.cjs
-.eslintrc.cjs
-.vscode
-src/content
