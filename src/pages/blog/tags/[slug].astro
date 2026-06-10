@@ -1,24 +1,24 @@
 ---
-import MainLayout from '@/layouts/MainLayout.astro'
-import { getCollection } from 'astro:content'
-import PostCard from '@/components/PostCard.astro'
-import { ChevronLeft } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { slug as slugger } from 'github-slugger'
-import { SITE_CONFIG } from '@/constants'
+import { getCollection } from "astro:content"
+import { slug as slugger } from "github-slugger"
+import { ChevronLeft } from "lucide-react"
+import PostCard from "@/components/PostCard.astro"
+import { Button } from "@/components/ui/button"
+import { SITE_CONFIG } from "@/constants"
+import MainLayout from "@/layouts/MainLayout.astro"
 
 export const prerender = true
 const posts = await getCollection(
-  'posts',
+  "posts",
   ({ data }) => data.published === true
 )
 
 export async function getStaticPaths() {
   const posts = await getCollection(
-    'posts',
+    "posts",
     ({ data }) => data.published === true
   )
-  return [...new Set(posts.map(post => post.data.tags).flat())].map(tag => ({
+  return [...new Set(posts.flatMap(post => post.data.tags))].map(tag => ({
     params: { slug: slugger(tag) }
   }))
 }
@@ -26,7 +26,7 @@ export async function getStaticPaths() {
 const { slug } = Astro.params
 
 if (!slug) {
-  return Astro.redirect('/404')
+  return Astro.redirect("/404")
 }
 
 const postsWithTag = posts.filter(post =>
@@ -34,8 +34,7 @@ const postsWithTag = posts.filter(post =>
 )
 
 const tag = posts
-  .map(post => post.data.tags)
-  .flat()
+  .flatMap(post => post.data.tags)
   .find(tag => slugger(tag) === slug)
 
 const title = `${slug} - ${SITE_CONFIG.name}`
@@ -44,21 +43,21 @@ const image = `https://og.danni.my.id/home?title=${title}`
 ---
 
 <MainLayout {title} {description} {image}>
-  <main class='container max-w-3xl'>
-    <div class='mb-6 mt-4'>
-      <h2 class='font-heading text-2xl'>{description}</h2>
+  <main class="container max-w-3xl">
+    <div class="mb-6 mt-4">
+      <h2 class="font-heading text-2xl">{description}</h2>
     </div>
-    <div class='flex flex-col gap-4'>
+    <div class="flex flex-col gap-4">
       {postsWithTag.map(post => <PostCard {post} />)}
     </div>
-    <div class='my-6 flex justify-center'>
+    <div class="my-6 flex justify-center">
       <a
-        href='/blog/tags'
-        class='inline-flex items-center'
-        aria-label='See all tags'
+        href="/blog/tags"
+        class="inline-flex items-center"
+        aria-label="See all tags"
       >
-        <Button variant='ghost'>
-          <ChevronLeft className='-ml-2 mr-1 h-4 w-4' />See all tags
+        <Button variant="ghost">
+          <ChevronLeft className="-ml-2 mr-1 h-4 w-4" />See all tags
         </Button>
       </a>
     </div>

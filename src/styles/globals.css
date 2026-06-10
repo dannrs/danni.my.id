@@ -84,16 +84,53 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   code {
     @apply relative rounded bg-[#f8f7f3] px-[0.2rem] py-[0.1rem] align-middle font-mono text-sm dark:bg-[#1c1b1b];
   }
 }
 
-html.light .astro-code,
-html.light .astro-code span {
+.astro-code {
+  padding: 1.5rem 1.35rem;
+}
+
+.astro-code,
+code {
+  font-family: "JetBrains Mono", monospace;
+  counter-reset: line;
+}
+
+.astro-code .line {
+  display: block;
+  line-height: 0;
+  position: relative;
+  padding-left: 1.85rem;
+}
+
+.astro-code .line::before {
+  counter-increment: line;
+  content: counter(line);
+  position: absolute;
+  left: 0;
+  text-align: right;
+  user-select: none;
+  /* Prevents users from copying line numbers */
+
+  /* Default Light Theme Number Color */
+  color: #a0a1a7;
+}
+
+html.dark .astro-code .line::before {
+  color: #51597d;
+}
+
+/* biome-ignore-start lint/complexity/noImportantStyles: Shiki themes require !important overrides during manual dark mode toggling */
+.astro-code,
+.astro-code span {
   background-color: #f8f7f3 !important;
 }
 
@@ -108,21 +145,4 @@ code::after {
   content: none !important;
 }
 
-.astro-code,
-code {
-  font-family: 'JetBrains Mono', monospace;
-}
-
-.astro-code {
-  display: grid;
-
-  .line {
-    counter-increment: count;
-  }
-
-  .line:not(:last-of-type)::before {
-    content: counter(count);
-    padding-right: 1rem;
-    opacity: 0.4;
-  }
-}
+/* biome-ignore-end lint/complexity/noImportantStyles: Shiki themes require !important overrides during manual dark mode toggling */

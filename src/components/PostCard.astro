@@ -1,28 +1,28 @@
 ---
-import type { CollectionEntry } from 'astro:content'
-import { formatDate } from '@/lib/utils'
+import type { CollectionEntry } from "astro:content"
+import { formatDate } from "@/lib/utils"
 
 type Props = {
-  post: CollectionEntry<'posts'>
+  post: CollectionEntry<"posts">
 }
 
 const {
   post: {
     id: slug,
-    data: { title, description, date },
+    data: { title, description, date }
   }
 } = Astro.props
 ---
 
-<article class='group relative pb-4 last:pb-1'>
-  <div class='flex w-full flex-col space-y-1'>
-    <h3 class='font-heading text-lg'>
+<article class="group relative pb-4 last:pb-1">
+  <div class="flex w-full flex-col space-y-1">
+    <h3 class="font-heading text-lg">
       <a href={`/blog/${slug}`} aria-label={`Open blog post: ${title}`}>
         {title}
       </a>
     </h3>
-    <div class='text-sm'>
-      <p class='pb-1'>{description}</p>
+    <div class="text-sm">
+      <p class="pb-1">{description}</p>
       <time datetime={date.toDateString()}>{formatDate(date)}</time>
     </div>
   </div>

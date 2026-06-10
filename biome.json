@@ -11,7 +11,7 @@
   },
   "formatter": {
     "enabled": true,
-    "includes": ["**", "!src/content/**", "!.vscode/**"],
+    "includes": ["**", "!src/content/**", "!.vscode/**", "!.zed/**"],
     "indentStyle": "space",
     "indentWidth": 2,
     "lineEnding": "lf",
@@ -22,7 +22,15 @@
     "includes": ["**", "!src/env.d.ts"],
     "rules": {
       "recommended": true,
-      "a11y": "warn"
+      "a11y": "warn",
+      "suspicious": {
+        "noUnknownAtRules": {
+          "level": "error",
+          "options": {
+            "ignore": ["tailwind"]
+          }
+        }
+      }
     }
   },
   "javascript": {

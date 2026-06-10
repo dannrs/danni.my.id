@@ -4,7 +4,7 @@ import mdx from "@astrojs/mdx"
 import react from "@astrojs/react"
 import tailwind from "@astrojs/tailwind"
 import { defineConfig } from "astro/config"
-import Icons from 'unplugin-icons/vite'
+import Icons from "unplugin-icons/vite"
 import { remarkReadingTime } from "./src/lib/remark-reading-time.mjs"
 
 // https://astro.build/config
@@ -18,12 +18,10 @@ export default defineConfig({
       applyBaseStyles: false,
       nesting: true
     }),
-    mdx(),
+    mdx()
   ],
   vite: {
-    plugins: [
-      Icons({ compiler: 'astro' })
-    ]
+    plugins: [Icons({ compiler: "astro" })]
   },
   markdown: {
     shikiConfig: {

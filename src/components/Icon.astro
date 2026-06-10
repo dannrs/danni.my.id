@@ -2,8 +2,8 @@
 import type { HTMLAttributes } from "astro/types"
 import MdiEmail from "~icons/mdi/email"
 import MdiGithub from "~icons/mdi/github"
-import MdiLinkedin from "~icons/mdi/linkedin"
 import MdiLinkVariant from "~icons/mdi/link-variant"
+import MdiLinkedin from "~icons/mdi/linkedin"
 import MdiTwitter from "~icons/mdi/twitter"
 
 const icons = {
@@ -29,7 +29,9 @@ if (!name) {
 const Icon = icons[name as IconName]
 
 if (!Icon) {
-  throw new Error(`Icon '${name} is not registered. Add it to src/component/Icon.astro.`)
+  throw new Error(
+    `Icon '${name} is not registered. Add it to src/component/Icon.astro.`
+  )
 }
 ---
 

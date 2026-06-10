@@ -1,17 +1,17 @@
 ---
-import { getCollection, render } from 'astro:content'
-import MainLayout from '@/layouts/MainLayout.astro'
-import MdxLayout from '@/layouts/MdxLayout.astro'
-import { Button } from '@/components/ui/button'
-import { formatDate } from '@/lib/utils'
-import { ChevronLeft } from 'lucide-react'
-import { SITE_CONFIG } from '@/constants'
-import { Badge } from '@/components/ui/badge'
-import { slug } from 'github-slugger'
+import { getCollection, render } from "astro:content"
+import { slug } from "github-slugger"
+import { ChevronLeft } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { SITE_CONFIG } from "@/constants"
+import MainLayout from "@/layouts/MainLayout.astro"
+import MdxLayout from "@/layouts/MdxLayout.astro"
+import { formatDate } from "@/lib/utils"
 
 export const prerender = true
 export async function getStaticPaths() {
-  const posts = await getCollection('posts')
+  const posts = await getCollection("posts")
 
   return posts.map(post => ({
     params: { slug: post.id },
@@ -28,37 +28,35 @@ const {
 const { Content, remarkPluginFrontmatter, headings } = await render(post)
 const readingTime = Math.round(remarkPluginFrontmatter?.minutesRead)
 const readingTimeText = `${readingTime} ${
-  readingTime === 1 ? 'min' : 'mins'
+  readingTime === 1 ? "min" : "mins"
 } read`
 const siteTitle = `${title} - ${SITE_CONFIG.name}`
-console.log('post id:', post.id)
+console.log("post id:", post.id)
 const image = `https://og.danni.my.id/blog?title=${title}`
 ---
 
 <MainLayout title={siteTitle} {description} {image}>
-  <main class='container mt-8 max-w-3xl'>
-    <h1 class='pb-2 font-heading text-3xl'>{title}</h1>
-    <div class='text-sm'>
-      <time datetime={date.toDateString()}>{formatDate(date)}</time
+  <main class="container mt-8 max-w-3xl">
+    <h1 class="pb-2 font-heading text-3xl">{title}</h1>
+    <div class="text-sm">
+      <time datetime={date.toDateString()}
+        >{formatDate(date)}</time
       >&nbsp;&bull;&nbsp;<span>{readingTimeText}</span>
     </div>
-    <div class='flex flex-wrap gap-1 pt-2'>
-      {
-        tags.map(tag => (
+    <div class="flex flex-wrap gap-1 pt-2">
+      {tags.map(tag => (
           <a
             href={`/blog/tags/${slug(tag)}`}
             aria-label={`See all post about ${tag}`}
           >
             <Badge variant='outline'>{tag}</Badge>
           </a>
-        ))
-      }
+        ))}
     </div>
-    <details class='my-8 rounded-md border p-4'>
-      <summary class='cursor-pointer'>Table of Contents</summary>
-      <ul class='space-y-2 pt-4'>
-        {
-          headings.map(heading => (
+    <details class="my-8 rounded-md border p-4">
+      <summary class="cursor-pointer">Table of Contents</summary>
+      <ul class="space-y-2 pt-4">
+        {headings.map(heading => (
             <li>
               <a
                 href={`#${heading.slug}`}
@@ -68,21 +66,20 @@ const image = `https://og.danni.my.id/blog?title=${title}`
                 {heading.text}
               </a>
             </li>
-          ))
-        }
+          ))}
       </ul>
     </details>
     <MdxLayout>
       <Content />
     </MdxLayout>
-    <div class='my-8 flex justify-center'>
+    <div class="my-8 flex justify-center">
       <a
-        href='/blog'
-        class='inline-flex items-center'
-        aria-label='See all posts'
+        href="/blog"
+        class="inline-flex items-center"
+        aria-label="See all posts"
       >
-        <Button variant='ghost'>
-          <ChevronLeft className='-ml-2 mr-1 h-4 w-4' />See all posts
+        <Button variant="ghost">
+          <ChevronLeft className="-ml-2 mr-1 h-4 w-4" />See all posts
         </Button>
       </a>
     </div>

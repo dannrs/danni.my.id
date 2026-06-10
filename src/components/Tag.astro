@@ -1,7 +1,7 @@
 ---
-import { slug } from 'github-slugger'
-import { cn } from '@/lib/utils'
-import { buttonVariants } from '@/components/ui/button'
+import { slug } from "github-slugger"
+import { buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
 type Props = {
   tag: string
@@ -17,8 +17,9 @@ const { tag, number, className } = Astro.props
   class={cn(
     className,
     'text-sm inline-flex items-center',
-    buttonVariants({ variant: 'outline', size: 'xs' })
+    buttonVariants({ variant: 'outline', size: 'sm' })
   )}
 >
-  {tag} ({number})
+  {tag}
+  ({number})
 </a>

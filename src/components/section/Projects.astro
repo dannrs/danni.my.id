@@ -1,26 +1,24 @@
 ---
-import ProjectCard from '@/components/ProjectCard.astro'
-import { ArrowUpRight } from 'lucide-react'
-import { PROJECTS } from '@/constants'
+import { ArrowUpRight } from "lucide-react"
+import ProjectCard from "@/components/ProjectCard.astro"
+import { PROJECTS } from "@/constants"
 ---
 
-<section class='py-10'>
-  <h2 class='font-heading text-2xl'>
-    <a href='/projects' aria-label='See all projects' class='group'>
+<section class="py-10">
+  <h2 class="font-heading text-2xl">
+    <a href="/projects" aria-label="See all projects" class="group">
       Projects
       <ArrowUpRight
-        className='inline h-5 w-5 opacity-0 duration-200 group-hover:opacity-100'
+        className="inline h-5 w-5 opacity-0 duration-200 group-hover:opacity-100"
       />
     </a>
   </h2>
-  <p class='pb-4 text-sm text-foreground-3'>
+  <p class="pb-4 text-sm text-foreground-3">
     A list of projects I have created
   </p>
-  <div class='flex flex-col'>
-    {
-      PROJECTS.slice(0, 3).map((project, index) => (
+  <div class="flex flex-col">
+    {PROJECTS.slice(0, 3).map((project, index) => (
         <ProjectCard {...{ project, index }} />
-      ))
-    }
+      ))}
   </div>
 </section>
