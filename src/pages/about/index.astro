@@ -1,15 +1,15 @@
 ---
-import { getEntry, render } from 'astro:content'
-import { SITE_CONFIG } from '@/constants'
-import MainLayout from '@/layouts/MainLayout.astro'
-import MdxLayout from '@/layouts/MdxLayout.astro'
-import { Icon } from 'astro-icon/components'
+import { getEntry, render } from "astro:content"
+import Icon from "@/components/Icon.astro"
+import { SITE_CONFIG } from "@/constants"
+import MainLayout from "@/layouts/MainLayout.astro"
+import MdxLayout from "@/layouts/MdxLayout.astro"
 
 const socialLinks = SITE_CONFIG.links
-const page = await getEntry('pages', 'about-me')
+const page = await getEntry("pages", "about-me")
 
 if (!page) {
-  throw new Error('About me page not found')
+  throw new Error("About me page not found")
 }
 
 const title = `${page.data.title} - ${SITE_CONFIG.name}`
@@ -19,27 +19,25 @@ const { Content: AboutMe } = await render(page)
 ---
 
 <MainLayout {title} {description} {image}>
-  <main class='container max-w-3xl py-4'>
-    <section id='about-me'>
-      <h1 class='font-heading text-3xl'>{page.data.title}</h1>
-      <p class='pb-4 text-foreground-3'>{description}</p>
+  <main class="container max-w-3xl py-4">
+    <section id="about-me">
+      <h1 class="font-heading text-3xl">{page.data.title}</h1>
+      <p class="pb-4 text-foreground-3">{description}</p>
       <MdxLayout>
         <AboutMe />
       </MdxLayout>
     </section>
-    <section id='contact' class='pb-4 pt-6'>
-      <h2 class='font-heading text-2xl'>Contact</h2>
-      <p class='pb-6 text-foreground-3'>
+    <section id="contact" class="pb-4 pt-6">
+      <h2 class="font-heading text-2xl">Contact</h2>
+      <p class="pb-6 text-foreground-3">
         Got something to discuss? Please feel free to contact me
       </p>
       <div class='flex items-center gap-6'>
-        {
-          socialLinks.map(({ href, name, icon }) => (
-            <a {href} target='_blank' aria-label={`Open my ${name} link`}>
+        {socialLinks.map(({ href, name, icon }) => (
+            <a href={href} target='_blank' rel="noreferrer" aria-label={`Open my ${name} link`}>
               <Icon name={icon} class='h-6 w-6' />
             </a>
-          ))
-        }
+          ))}
       </div>
     </section>
   </main>

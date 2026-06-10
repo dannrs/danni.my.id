@@ -1,0 +1,36 @@
+---
+import type { HTMLAttributes } from "astro/types"
+import MdiEmail from "~icons/mdi/email"
+import MdiGithub from "~icons/mdi/github"
+import MdiLinkedin from "~icons/mdi/linkedin"
+import MdiLinkVariant from "~icons/mdi/link-variant"
+import MdiTwitter from "~icons/mdi/twitter"
+
+const icons = {
+  "mdi:email": MdiEmail,
+  "mdi:github": MdiGithub,
+  "mdi:linkedin": MdiLinkedin,
+  "mdi:link-variant": MdiLinkVariant,
+  "mdi:twitter": MdiTwitter
+}
+
+export type IconName = keyof typeof icons
+
+interface Props extends HTMLAttributes<"svg"> {
+  name: IconName | (string & {})
+}
+
+const { name, ...props } = Astro.props
+
+if (!name) {
+  throw new Error("Missing required 'name' prop for Icon")
+}
+
+const Icon = icons[name as IconName]
+
+if (!Icon) {
+  throw new Error(`Icon '${name} is not registered. Add it to src/component/Icon.astro.`)
+}
+---
+
+<Icon {...props} />

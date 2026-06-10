@@ -1,22 +1,24 @@
-type NavItem = {
+import type { IconName } from "@/components/Icon.astro"
+
+export type NavItem = {
   title: string
   href: string
 }
 
-type Link = {
+export type Link = {
   name: string
   href: string
-  icon?: string
+  icon: IconName | (string & {})
 }
 
-type SiteConfig = {
+export type SiteConfig = {
   name: string
   description: string
   url: string
   links: Link[]
 }
 
-type Project = {
+export type Project = {
   name: string
   description: string
   stacks: string[]

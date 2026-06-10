@@ -22,14 +22,12 @@
     "@fontsource-variable/inter": "^5.0.18",
     "@fontsource-variable/jetbrains-mono": "^5.0.21",
     "@fontsource/barlow": "^5.0.13",
-    "@iconify-json/mdi": "^1.1.66",
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tooltip": "^1.0.7",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "astro": "^6.4.5",
-    "astro-icon": "^1.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "github-slugger": "^2.0.0",
@@ -45,8 +43,10 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.16",
+    "@iconify-json/mdi": "^1.2.3",
     "@tailwindcss/typography": "^0.5.13",
     "typescript": "^5.4.5",
+    "unplugin-icons": "^23.0.1",
     "wrangler": "^4.99.0"
   }
 }
