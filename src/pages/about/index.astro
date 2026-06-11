@@ -35,7 +35,7 @@ const { Content: AboutMe } = await render(page)
       <div class="flex items-center gap-6">
         {socialLinks.map(({ href, name, icon }) => (
             <a href={href} target='_blank' rel="noreferrer" aria-label={`Open my ${name} link`}>
-              <Icon name={icon} class='h-6 w-6' />
+              <Icon name={icon} class='size-6' />
             </a>
           ))}
       </div>

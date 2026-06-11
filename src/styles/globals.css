@@ -1,82 +1,195 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "@fontsource-variable/inter/wght.css";
+@import "@fontsource-variable/victor-mono/wght.css";
+@import "@fontsource/barlow/700.css";
+@plugin "@tailwindcss/typography";
 
-@layer base {
-  :root {
-    --background: 48 100% 97%;
-    --foreground: 0 3% 6%;
+@custom-variant dark (&:is(.dark *));
 
-    --muted: 51 21% 88%;
-    --muted-2: 50 14% 83%;
-    --muted-3: 55 10% 79%;
-    --muted-foreground: 0 3% 6%;
+@theme inline {
+  --font-heading: "Barlow", sans-serif;
+  --font-sans: "Inter Variable", sans-serif;
+  --font-mono: "Victor Mono Variable", monospace;
 
-    --popover: 48 100% 97%;
-    --popover-foreground: 0 3% 6%;
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-blur: var(--blur) / 0.9;
 
-    --card: 48 100% 97%;
-    --card-foreground: 0 3% 6%;
+  --color-background: var(--background);
 
-    --border: 51 21% 88%;
-    --input: 51 21% 88%;
+  --color-foreground: var(--foreground);
+  --color-foreground-2: var(--foreground-2);
+  --color-foreground-3: var(--foreground-3);
 
-    --primary: 0 3% 6%;
-    --primary-foreground: 48 100% 97%;
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
 
-    --secondary: 51 21% 88%;
-    --secondary-foreground: 0 3% 6%;
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
 
-    --accent: 51 33% 92%;
-    --accent-foreground: 0 3% 6%;
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
 
-    --destructive: 3 62% 42%;
-    --destructive-foreground: 48 100% 97%;
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted-2: var(--muted-2);
+  --color-muted-3: var(--muted-3);
 
-    --ring: 51 21% 88%;
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
 
-    --blur: 48 100% 97%;
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
 
-    --radius: 0.5rem;
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --text-3xl: 2rem;
+  --text-3xl--line-height: 2.25rem;
+}
+
+:root {
+  --background: hsl(48 100% 97%);
+  --foreground: hsl(0 3% 6%);
+
+  --muted: hsl(51 21% 88%);
+  --muted-2: hsl(50 14% 83%);
+  --muted-3: hsl(55 10% 79%);
+  --muted-foreground: hsl(0 3% 6%);
+
+  --popover: hsl(48 100% 97%);
+  --popover-foreground: hsl(0 3% 6%);
+
+  --card: hsl(48 100% 97%);
+  --card-foreground: hsl(0 3% 6%);
+
+  --border: hsl(51 21% 88%);
+  --input: hsl(51 21% 88%);
+
+  --primary: hsl(0 3% 6%);
+  --primary-foreground: hsl(48 100% 97%);
+
+  --secondary: hsl(51 21% 88%);
+  --secondary-foreground: hsl(0 3% 6%);
+
+  --accent: hsl(51 33% 92%);
+  --accent-foreground: hsl(0 3% 6%);
+
+  --destructive: hsl(3 62% 42%);
+  --destructive-foreground: hsl(48 100% 97%);
+
+  --ring: hsl(51 21% 88%);
+
+  --blur: hsl(48 100% 97%);
+
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: hsl(0 3% 6%);
+  --foreground: hsl(55 10% 79%);
+  --foreground-2: hsl(50 14% 83%);
+  --foreground-3: hsl(49 7% 70%);
+
+  --muted: hsl(30 3% 15%);
+  --muted-2: hsl(40 3% 20%);
+  --muted-3: hsl(0 2% 11%);
+  --muted-foreground: hsl(49 7% 70%);
+
+  --popover: hsl(0 3% 6%);
+  --popover-foreground: hsl(55 10% 79%);
+
+  --card: hsl(0 3% 6%);
+  --card-foreground: hsl(55 10% 79%);
+
+  --border: hsl(30 3% 15%);
+  --input: hsl(30 3% 15%);
+
+  --primary: hsl(55 10% 79%);
+  --primary-foreground: hsl(0 3% 6%);
+
+  --secondary: hsl(30 3% 15%);
+  --secondary-foreground: hsl(55 10% 79%);
+
+  --accent: hsl(30 4% 11%);
+  --accent-foreground: hsl(55 10% 79%);
+
+  --destructive: hsl(5 61% 54%);
+  --destructive-foreground: hsl(55 10% 79%);
+
+  --ring: hsl(30 3% 15%);
+
+  --blur: hsl(0 3% 6%);
+
+  --radius: 0.5rem;
+}
+
+@utility container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 2rem;
+
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+@layer utilities {
+  .prose {
+    color: var(--foreground);
+    letter-spacing: -0.025rem;
   }
 
-  .dark {
-    --background: 0 3% 6%;
-    --foreground: 55 10% 79%;
-    --foreground-2: 50 14% 83%;
-    --foreground-3: 49 7% 70%;
+  .prose :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    margin-bottom: 0.5rem;
+    scroll-margin: 4.5rem;
+    color: var(--foreground-2);
+    font-family: "Barlow", ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.875rem;
+    font-weight: 800;
+    letter-spacing: -0.025rem;
+  }
 
-    --muted: 30 3% 15%;
-    --muted-2: 40 3% 20%;
-    --muted-3: 0 2% 11%;
-    --muted-foreground: 49 7% 70%;
+  .prose :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    margin-top: 1.5em;
+    margin-bottom: 0.75rem;
+    scroll-margin: 4.5rem;
+    color: var(--foreground-2);
+    font-family: "Barlow", ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.025rem;
+  }
 
-    --popover: 0 3% 6%;
-    --popover-foreground: 55 10% 79%;
+  .prose :where(h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    margin-top: 1.25em;
+    scroll-margin: 4.5rem;
+    color: var(--foreground-2);
+    font-family: "Barlow", ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
 
-    --card: 0 3% 6%;
-    --card-foreground: 55 10% 79%;
+  .prose :where(h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    margin-top: 1.3em;
+    scroll-margin: 4.5rem;
+    color: var(--foreground-2);
+    font-family: "Barlow", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+  }
 
-    --border: 30 3% 15%;
-    --input: 30 3% 15%;
-
-    --primary: 55 10% 79%;
-    --primary-foreground: 0 3% 6%;
-
-    --secondary: 30 3% 15%;
-    --secondary-foreground: 55 10% 79%;
-
-    --accent: 30 4% 11%;
-    --accent-foreground: 55 10% 79%;
-
-    --destructive: 5 61% 54%;
-    --destructive-foreground: 55 10% 79%;
-
-    --ring: 30 3% 15%;
-
-    --blur: 0 3% 6%;
-
-    --radius: 0.5rem;
+  .prose
+    :where(img, picture, video):not(
+      :where([class~="not-prose"], [class~="not-prose"] *)
+    ) {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -84,13 +197,18 @@
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
   }
-
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  html {
+    @apply font-sans;
+  }
   code {
-    @apply relative rounded bg-[#f8f7f3] px-[0.2rem] py-[0.1rem] align-middle font-mono text-sm dark:bg-[#1c1b1b];
+    @apply relative rounded bg-[#f8f7f3] px-[0.2rem] py-[0.1rem] align-middle font-mono font-semibold text-sm dark:bg-[#1c1b1b];
   }
 }
 
@@ -100,7 +218,8 @@
 
 .astro-code,
 code {
-  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
   counter-reset: line;
 }
 
@@ -118,9 +237,6 @@ code {
   left: 0;
   text-align: right;
   user-select: none;
-  /* Prevents users from copying line numbers */
-
-  /* Default Light Theme Number Color */
   color: #a0a1a7;
 }
 

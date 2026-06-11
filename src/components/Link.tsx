@@ -21,8 +21,8 @@ export default function Link({
       href={href}
       target={isExternal ? "_blank" : "_self"}
       className={cn(
-        "duration-800 m-0 inline-flex bg-gradient-to-b from-accent to-accent bg-[0_100%] bg-no-repeat no-underline transition-[background-size,color] hover:bg-[length:100%_100%] dark:text-[#f1f0ed]",
-        isExternal ? "bg-[length:100%_2px]" : "bg-[length:100%_0px]",
+        "duration-200 m-0 inline-flex bg-linear-to-b from-accent to-accent bg-bottom bg-no-repeat no-underline transition-[background-size,color] hover:bg-size-[100%_100%] dark:text-[#f1f0ed]",
+        isExternal ? "bg-size-[100%_2px]" : "bg-size-[100%_0px]",
         className
       )}
       aria-label={ariaLabel}
@@ -30,7 +30,7 @@ export default function Link({
       {isExternal ? (
         <>
           {children}
-          <ArrowUpRight className="inline h-5 w-5 self-center" />
+          <ArrowUpRight className="inline size-5 self-center" />
         </>
       ) : (
         <>

@@ -2,7 +2,7 @@ import cloudflare from "@astrojs/cloudflare"
 import { unified } from "@astrojs/markdown-remark"
 import mdx from "@astrojs/mdx"
 import react from "@astrojs/react"
-import tailwind from "@astrojs/tailwind"
+import tailwindcss from "@tailwindcss/vite"
 import { defineConfig } from "astro/config"
 import Icons from "unplugin-icons/vite"
 import { remarkReadingTime } from "./src/lib/remark-reading-time.mjs"
@@ -12,16 +12,9 @@ export default defineConfig({
   site: "https://danni.my.id",
   output: "server",
   adapter: cloudflare(),
-  integrations: [
-    react(),
-    tailwind({
-      applyBaseStyles: false,
-      nesting: true
-    }),
-    mdx()
-  ],
+  integrations: [react(), mdx()],
   vite: {
-    plugins: [Icons({ compiler: "astro" })]
+    plugins: [tailwindcss(), Icons({ compiler: "astro" })]
   },
   markdown: {
     shikiConfig: {
