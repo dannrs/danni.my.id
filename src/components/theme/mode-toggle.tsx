@@ -1,4 +1,5 @@
-import { Moon, Sun } from "lucide-react"
+import Moon from "virtual:icons/lucide/moon"
+import Sun from "virtual:icons/lucide/sun"
 import { useEffect, useState } from "react"
 
 import { Button } from "@/components/ui/button"
@@ -33,7 +34,7 @@ export function ModeToggle() {
   }
 
   return (
-    <Button variant="transparent" size="icon-md" onClick={toggleTheme}>
+    <Button variant="outline" size="icon" onClick={toggleTheme}>
       {currentTheme === "dark" ? (
         <Moon className="size-4" />
       ) : (

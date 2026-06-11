@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content"
-import { ArrowUpRight } from "lucide-react"
+import Icon from "@/components/Icon.astro"
 import PostCard from "@/components/PostCard.astro"
 
 const posts = await getCollection("posts")
@@ -10,8 +10,9 @@ const posts = await getCollection("posts")
   <h1 class="font-heading text-2xl">
     <a href="/blog" aria-label="See all blog post" class="group">
       Blog
-      <ArrowUpRight
-        className="inline size-5 opacity-0 duration-200 group-hover:opacity-100"
+      <Icon
+        name="lucide:arrow-up-right"
+        class="inline size-5 opacity-0 duration-200 group-hover:opacity-100"
       />
     </a>
   </h1>

@@ -1,5 +1,5 @@
 ---
-import { ArrowUpRight } from "lucide-react"
+import Icon from "@/components/Icon.astro"
 import ProjectCard from "@/components/ProjectCard.astro"
 import { PROJECTS } from "@/constants"
 ---
@@ -8,8 +8,9 @@ import { PROJECTS } from "@/constants"
   <h2 class="font-heading text-2xl">
     <a href="/projects" aria-label="See all projects" class="group">
       Projects
-      <ArrowUpRight
-        className="inline size-5 opacity-0 duration-200 group-hover:opacity-100"
+      <Icon
+        name="lucide:arrow-up-right"
+        class="inline size-5 opacity-0 duration-200 group-hover:opacity-100"
       />
     </a>
   </h2>

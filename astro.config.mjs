@@ -14,7 +14,7 @@ export default defineConfig({
   adapter: cloudflare(),
   integrations: [react(), mdx()],
   vite: {
-    plugins: [tailwindcss(), Icons({ compiler: "astro" })]
+    plugins: [tailwindcss(), Icons({ jsx: "react", "compiler": "jsx" }), Icons({ compiler: "astro" })]
   },
   markdown: {
     shikiConfig: {

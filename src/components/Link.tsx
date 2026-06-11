@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react"
+import ArrowUpRight from "virtual:icons/lucide/arrow-up-right"
 import { cn } from "@/lib/utils"
 
 interface LinkProps {

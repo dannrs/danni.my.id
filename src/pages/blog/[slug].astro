@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from "astro:content"
 import { slug } from "github-slugger"
-import { ChevronLeft } from "lucide-react"
+import Icon from "@/components/Icon.astro"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { SITE_CONFIG } from "@/constants"
@@ -79,7 +79,8 @@ const image = `https://og.danni.my.id/blog?title=${title}`
         aria-label="See all posts"
       >
         <Button variant="ghost">
-          <ChevronLeft className="-ml-2 mr-1 size-4" />See all posts
+          <Icon name="lucide:chevron-left" class="-ml-2 mr-1 size-4" />See all
+          posts
         </Button>
       </a>
     </div>
