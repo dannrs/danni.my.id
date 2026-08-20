@@ -19,7 +19,7 @@ const { Content: AboutMe } = await render(page)
 ---
 
 <MainLayout {title} {description} {image}>
-  <main class="container max-w-3xl py-4">
+  <main class="container max-w-3xl py-6 space-y-6">
     <section id="about-me">
       <h1 class="font-heading text-3xl">{page.data.title}</h1>
       <p class="pb-4 text-foreground-3">{description}</p>
@@ -27,8 +27,8 @@ const { Content: AboutMe } = await render(page)
         <AboutMe />
       </MdxLayout>
     </section>
-    <section id="contact" class="pb-4 pt-6">
-      <h2 class="font-heading text-2xl">Contact</h2>
+    <section id="contact" class="p-4 border">
+      <h2 class="font-heading text-2xl">Contact Me</h2>
       <p class="pb-6 text-foreground-3">
         Got something to discuss? Please feel free to contact me
       </p>
